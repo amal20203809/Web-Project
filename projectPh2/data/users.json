@@ -1,0 +1,80 @@
+[
+  {
+    "id": "s1001",
+    "username": "sa1001s",
+    "password": "pass123",
+    "name": "Sara Amer",
+    "role": "student",
+    "completedCourses": [
+      {"name": "MATH101", "grade": "B+"}, {"name": "STAT101", "grade": "A"}, {"name": "MATH102", "grade": "C"},
+      {"name": "STAT211", "grade": "D+"}, {"name": "MATH251", "grade": "B"}
+    ]
+  },
+  {
+    "id": "s1002",
+    "username": "mo1002s",
+    "password": "pass123",
+    "name": "Maryam Omer",
+    "role": "student",
+    "completedCourses": [
+      {"name": "MATH101", "grade": "C+"}, {"name": "STAT101", "grade": "B+"}, {"name": "STAT102", "grade": "C"},
+      {"name": "MATH102", "grade": "D"}, {"name": "CMPS151", "grade": "B+"}, {"name": "MATH231", "grade": "C"},
+      {"name": "STAT231", "grade": "B"}, {"name": "STAT211", "grade": "C+"}, {"name": "STAT322", "grade": "A"},
+      {"name": "CMPS251", "grade": "B"}
+    ]
+  },
+  {
+    "id": "s1003",
+    "username": "fm1003s",
+    "password": "pass123",
+    "name": "Fatma Mohammed",
+    "role": "student",
+    "completedCourses": [
+      {"name": "MATH101", "grade": "D+"}, {"name": "STAT101", "grade": "C"}, {"name": "MATH102", "grade": "D"},
+      {"name": "CMPS151", "grade": "F"}
+    ]
+  },
+
+  {
+    "id": "i2001",
+    "username": "sc2001i",
+    "password": "pass123",
+    "name": "Samer Carter",
+    "role": "instructor",
+    "expertise": ["STAT101", "STAT102", "STAT211", "STAT221", "STAT231", "STAT312", "STAT322", 
+                  "STAT332", "STAT333", "STAT361", "STAT371", "STAT481", "STAT499"]
+  },
+  {
+    "id": "i2002",
+    "username": "nw2002i",
+    "password": "pass123",
+    "name": "Nouf Walled",
+    "role": "instructor",
+    "expertise": ["CMPS151", "CMPS205", "CMPS251", "CMPS303", "CMPS350", "CMPS351"]
+  },
+  {
+    "id": "i2003",
+    "username": "kj2003i",
+    "password": "pass123",
+    "name": "Kalthm Jassim",
+    "role": "instructor",
+    "expertise": ["MATH101", "MATH102", "MATH231", "MATH251"]
+  },
+
+
+  {
+    "id": "a3001",
+    "username": "md3001a",
+    "password": "pass123",
+    "name": "Alia Khalid",
+    "role": "admin"
+  },
+  {
+    "id": "a3002",
+    "username": "th3002a",
+    "password": "pass123",
+    "name": "Bader Ali",
+    "role": "admin"
+  }
+]
+  
