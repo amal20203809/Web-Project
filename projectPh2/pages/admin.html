@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+      <a>Admin System</a>
+    </nav>
+  
+    <div class="container">
+      <div class="subtitle-box">Search and View All Courses</div>
+  
+      <div class="content">
+        <input type="text" id="searchInput" placeholder="Search by course name or category..." style="padding:10px; width:100%; max-width:400px; margin-bottom:20px;">
+        <div id="courseList"></div>
+      </div>
+    </div>
+  
+    <script>
+      let courses = [];
+  
+      fetch('../data/courses.json')
+        .then(res => res.json())
+        .then(data => {
+          courses = data;
+          displayCourses(courses);
+        })
+        .catch(err => console.error("Error loading courses:", err));
+  
+      document.getElementById('searchInput').addEventListener('input', function() {
+        const keyword = this.value.toLowerCase();
+        const filtered = courses.filter(course =>
+          course.name.toLowerCase().includes(keyword) ||
+          course.category.toLowerCase().includes(keyword) ||
+          course.id.toLowerCase().includes(keyword)
+        );
+        displayCourses(filtered);
+      });
+  
+      function displayCourses(courseArray) {
+        const list = document.getElementById('courseList');
+        list.innerHTML = '';
+  
+        if (courseArray.length === 0) {
+          list.innerHTML = '<p>No matching courses found.</p>';
+          return;
+        }
+  
+        courseArray.forEach(course => {
+          const div = document.createElement('div');
+          div.className = 'content';
+          div.innerHTML = `
+            <h3>${course.name} (${course.id})</h3>
+            <p><strong>Category:</strong> ${course.category}</p>
+            <p><strong>Instructor:</strong> ${course.instructorName}</p>
+            <p><strong>Pre-Requisites:</strong> ${course.prerequisites.length ? course.prerequisites.join(', ') : 'None'}</p>
+          `;
+          list.appendChild(div);
+        });
+      }
+    </script>
+  
+</body>
+</html>
