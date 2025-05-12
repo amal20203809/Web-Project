@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+      <a>Instructor System</a>
+    </nav>
+  
+    <div class="container">
+      <div class="subtitle-box">Your Courses</div>
+  
+      <div class="content">
+        <div id="courseList"></div>
+      </div>
+    </div>
+  
+    <script>
+      let courses = [];
+  
+        const currentUsername = "sc2001i"; //localStorage
+        //const currentUsername = localStorage.getItem("username");
+  
+      fetch('../data/courses.json')
+        .then(res => res.json())
+        .then(data => {
+          courses = data.filter(course => course.instructor === currentUsername);
+          displayCourses(courses);
+        })
+        .catch(err => console.error("Error loading courses:", err));
+  
+      function displayCourses(courseArray) {
+        const list = document.getElementById('courseList');
+        list.innerHTML = '';
+  
+        if (courseArray.length === 0) {
+          list.innerHTML = '<p>No courses found for this instructor.</p>';
+          return;
+        }
+  
+        courseArray.forEach(course => {
+          const div = document.createElement('div');
+          div.className = 'content';
+          div.innerHTML = `
+            <h3>${course.name} (${course.id})</h3>
+            <p><strong>Category:</strong> ${course.category}</p>
+            <p><strong>Pre-Requisites:</strong> ${course.prerequisites.length ? course.prerequisites.join(', ') : 'None'}</p>
+            <p><strong>Enrolled Students:</strong> ${course.studentsEnrolled.length ? course.studentsEnrolled.join(', ') : 'None'}</p>
+          `;
+          list.appendChild(div);
+        });
+      }
+    </script>
+  
+</body>
+</html>
