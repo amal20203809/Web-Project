@@ -1,0 +1,214 @@
+[
+    {
+      "id": "STAT101",
+      "name": "Statistics1",
+      "category": "Statistics",
+      "instructor": "i2001",
+      "instructorName": "Samer Carter",
+      "prerequisites": [],
+      "studentsEnrolled": []
+    },
+    {
+        "id": "STAT102",
+        "name": "Statistics2",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT101"],
+        "studentsEnrolled": ["fm1003s"]
+    },
+    {
+        "id": "STAT211",
+        "name": "Introduction to Probability",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT101", "MATH102"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT221",
+        "name": "Mathematical Statistics 1",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT211", "MATH251"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT231",
+        "name": "Applied Regression Analysis",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT102", "STAT211"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT312",
+        "name": "Stochastic Processes",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT211", "MATH251"],
+        "studentsEnrolled": ["sa1001s"]
+    },
+    {
+        "id": "STAT322",
+        "name": "Mathematical Statistics 2",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT221"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT332",
+        "name": "Design of Experiments",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT102", "STAT211"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT333",
+        "name": "Time Series",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT231"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT361",
+        "name": "Sampling Methods",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT102", "STAT211"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "STAT371",
+        "name": "Statistical Packages",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT231"],
+        "studentsEnrolled": ["mo1002s"]
+    },
+    {
+        "id": "STAT481",
+        "name": "Multivariate Analysis",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": ["STAT322", "MATH231"],
+        "studentsEnrolled": ["mo1002s"]
+    },
+    {
+        "id": "STAT499",
+        "name": "Graduation Project",
+        "category": "Statistics",
+        "instructor": "i2001",
+        "instructorName": "Samer Carter",
+        "prerequisites": [],
+        "studentsEnrolled": []
+    },
+
+
+    {
+      "id": "CMPS151",
+      "name": "Programming Conccpts",
+      "category": "Computer Science",
+      "instructor": "i2002",
+      "instructorName": "Nouf Walled",
+      "prerequisites": [],
+      "studentsEnrolled": ["sa1001s", "fm1003s"]
+    },
+    {
+        "id": "CMPS205",
+        "name": "Discrete Structure for Computing",
+        "category": "Computer Science",
+        "instructor": "i2002",
+        "instructorName": "Nouf Walled",
+        "prerequisites": [],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "CMPS251",
+        "name": "Object-Oriented Programming",
+        "category": "Computer Science",
+        "instructor": "i2002",
+        "instructorName": "Nouf Walled",
+        "prerequisites": ["CMPS151"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "CMPS303",
+        "name": "Data Structures",
+        "category": "Computer Science",
+        "instructor": "i2002",
+        "instructorName": "Nouf Walled",
+        "prerequisites": ["CMPS251", "CMPS205"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "CMPS350",
+        "name": "Web Development Fundamentals",
+        "category": "Computer Science",
+        "instructor": "i2002",
+        "instructorName": "Nouf Walled",
+        "prerequisites": ["CMPS251"],
+        "studentsEnrolled": ["mo1002s"]
+    },
+    {
+        "id": "CMPS351",
+        "name": "Fundamentals of Database System",
+        "category": "Computer Science",
+        "instructor": "i2002",
+        "instructorName": "Nouf Walled",
+        "prerequisites": ["CMPS251"],
+        "studentsEnrolled": ["mo1002s"]
+    },
+
+
+    {
+        "id": "MATH101",
+        "name": "Calculus1",
+        "category": "Mathematics",
+        "instructor": "i2003",
+        "instructorName": "Kalthm jassim",
+        "prerequisites": [],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "MATH102",
+        "name": "Calculus2",
+        "category": "Mathematics",
+        "instructor": "i2003",
+        "instructorName": "Kalthm jassim",
+        "prerequisites": ["MATH101"],
+        "studentsEnrolled": []
+    },
+    {
+        "id": "MATH231",
+        "name": "Linear Algebra",
+        "category": "Mathematics",
+        "instructor": "i2003",
+        "instructorName": "Kalthm jassim",
+        "prerequisites": ["MATH102"],
+        "studentsEnrolled": ["sa1001s","fm1003s"]
+    },
+    {
+        "id": "MATH251",
+        "name": "Mathematics for Statistics",
+        "category": "Mathematics",
+        "instructor": "i2003",
+        "instructorName": "Kalthm jassim",
+        "prerequisites": ["MATH102"],
+        "studentsEnrolled": []
+    }
+  ]
+  
