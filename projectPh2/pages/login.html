@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="subtitle-box">Welcome to the System</div>
+        <div class="content">
+            <p>Please Enter your Username and Password</p>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <p id="error" style="color: red;"></p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value.toLowerCase();
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error');
+            errorDiv.textContent = ''; 
+
+            if (!username || !password) {
+                errorDiv.textContent = "Please enter both username and password.";
+                return;
+            }
+
+            fetch('../data/users.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load user data');
+                    }
+                    return response.json();
+                })
+                .then(users => {
+                    console.log("Fetched users:", users);
+                    const user = users.find(
+                        u => u.username.toLowerCase() === username && u.password === password
+                    );
+
+                    if (user) {
+                        if (user.role === "student") {
+                            window.location.href = "student.html";
+                        } else if (user.role === "instructor") {
+                            window.location.href = "instructor.html";
+                        } else if(user.role === "admin") {
+                            window.location.href = "admin.html";
+                        }
+                    } else {
+                        errorDiv.textContent = "Incorrect username or password.";
+                    }
+                })
+                .catch(error => {
+                    errorDiv.textContent = "Error loading user data.";
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+</html>
