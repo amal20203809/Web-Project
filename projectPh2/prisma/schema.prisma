@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id
+  username String @unique
+  password String
+  name     String
+  role     String // 'student', 'instructor', or 'admin'
+
+  completedCourses Course[] @relation("CompletedCourses_Student")
+  enrolledIn Course[] @relation("StudentCourses")
+  expertise Course[] @relation("CourseInstructors")
+}
+
+model Course {
+  id       String @id 
+  name     String
+  category String
+
+  instructorId String?
+  instructor   User?   @relation("CourseInstructors", fields: [instructorId], references: [id])
+
+  completedBy       User[] @relation("CompletedCourses_Student")
+  studentsEnrolled  User[] @relation("StudentCourses")
+  prerequisites      Course[] @relation("CoursePrerequisites")
+  requiredBy         Course[] @relation("CoursePrerequisites")
+}
