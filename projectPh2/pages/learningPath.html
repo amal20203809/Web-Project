@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>learning Path Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="subtitle-box">Learning Path for Student</div>
+
+    <div class="content">
+      <h3>Completed Courses:</h3>
+      <ul id="completedList"></ul>
+    </div>
+
+    <div class="content">
+      <h3>In Progress Courses:</h3>
+      <ul id="inProgressList"></ul>
+    </div>
+
+    <div class="content">
+      <h3>Pending Courses:</h3>
+      <ul id="pendingList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const currentUsername = "sa1001s"; //localStorage
+    //const currentUsername = localStorage.getItem("username");
+
+    let currentUser = null;
+    let courses = [];
+
+    fetch('../data/users.json')
+      .then(res => res.json())
+      .then(users => {
+        currentUser = users.find(user => user.username === currentUsername);
+        return fetch('../data/courses.json');
+      })
+      .then(res => res.json())
+      .then(courseData => {
+        courses = courseData;
+        displayLearningPath();
+      })
+      .catch(err => console.error("Error loading data:", err));
+
+      function displayLearningPath() {
+        const completedList = document.getElementById('completedList');
+        const inProgressList = document.getElementById('inProgressList');
+        const pendingList = document.getElementById('pendingList');
+
+        currentUser.completedCourses.forEach(course => {
+        const li = document.createElement('li');
+        li.textContent = `${course.name} (Grade: ${course.grade})`;
+        completedList.appendChild(li);
+        });
+
+        courses.forEach(course => {
+        if (course.studentsEnrolled.includes(currentUser.username)) {
+          const li1 = document.createElement('li');
+          li1.textContent = `${course.name} (${course.id})`;
+          inProgressList.appendChild(li1);
+
+          const li2 = document.createElement('li');
+          li2.textContent = `${course.name} (${course.id})`;
+          pendingList.appendChild(li2);
+        }
+        });
+      }
+  </script>
+</body>
+</html>
